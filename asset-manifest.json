@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/latif731/keramat_admin.git/static/css/main.15e43d20.css",
+    "main.js": "/latif731/keramat_admin.git/static/js/main.16230986.js",
+    "static/media/profile.jpeg": "/latif731/keramat_admin.git/static/media/profile.42c126d38ecd6a94419f.jpeg",
+    "index.html": "/latif731/keramat_admin.git/index.html",
+    "main.15e43d20.css.map": "/latif731/keramat_admin.git/static/css/main.15e43d20.css.map",
+    "main.16230986.js.map": "/latif731/keramat_admin.git/static/js/main.16230986.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.15e43d20.css",
+    "static/js/main.16230986.js"
+  ]
+}
