@@ -8,7 +8,6 @@ export const store = configureStore({
   reducer: {
     todo: todoReducer,
     global: GlobalReducer,
-    [api.reducerPath]: api.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(api.middleware),

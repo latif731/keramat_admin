@@ -9,15 +9,6 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 import { api } from "state/api";
 import { store } from "./state/store";
 
-// const store = configureStore({
-//   reducer: {s
-//     global: globalReducer,
-//     [api.reducerPath]: api.reducer,
-//   },
-//   middleware: (getDefault) => getDefault().concat(api.middleware),
-// });
-// setupListeners(store.dispatch);
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
