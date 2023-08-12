@@ -297,14 +297,15 @@ import { useGetTransactionsQuery } from "state/api";
 import Header from "components/Header";
 import DataGridCustomToolbar from "components/DataGridCustomToolbar";
 import { useDispatch, useSelector } from "react-redux";
+import { fetchProfitPerhari } from "state/redux/barang/barangSlice";
 // import { fetchTodos } from "state/redux/sliceBarangMasuk";
-import { fetchProfitPerhari } from "state/redux/sliceProfitPerhari";
+// import { fetchProfitPerhari } from "state/redux/sliceProfitPerhari";
 import DataGridTable from "components/table/DataGridTable";
 
 const ProfitPerHari = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
-  const { data, isLoading, isError } = useSelector((state) => state.todo);
+  const { data, isLoading, isError } = useSelector((state) => state.barang);
   console.log("returnjawabali", data);
   useEffect(() => {
     dispatch(fetchProfitPerhari());

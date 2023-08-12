@@ -15,17 +15,17 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
-import BreakdownChart from "components/BreakdownChart";
-import OverviewChart from "components/OverviewChart";
-import { useGetDashboardQuery } from "state/api";
+// import { DataGrid } from "@mui/x-data-grid";
+// import BreakdownChart from "components/BreakdownChart";
+// import OverviewChart from "components/OverviewChart";
+// import { useGetDashboardQuery } from "state/api";
 import StatBox from "components/StatBox";
 
 const Dashboard = () => {
   const theme = useTheme();
   const isNonMediumScreens = useMediaQuery("(min-width: 1200px)");
-  const { data, isLoading } = useGetDashboardQuery();
-  console.log("dashboard",data)
+  // const { data, isLoading } = useGetDashboardQuery();
+  // console.log("dashboard",data)
 
   const columns = [
     {
@@ -92,7 +92,7 @@ const Dashboard = () => {
         {/* ROW 1 */}
         <StatBox
           title="Total Customers"
-          value={data && data.totalCustomers}
+          // value={data && data.totalCustomers}
           increase="+14%"
           description="Since last month"
           icon={
@@ -103,7 +103,7 @@ const Dashboard = () => {
         />
         <StatBox
           title="Sales Today"
-          value={data && data.todayStats.totalSales}
+          // value={data && data.todayStats.totalSales}
           increase="+21%"
           description="Since last month"
           icon={
@@ -119,11 +119,11 @@ const Dashboard = () => {
           p="1rem"
           borderRadius="0.55rem"
         >
-          <OverviewChart view="sales" isDashboard={true} />
+          {/* <OverviewChart view="sales" isDashboard={true} /> */}
         </Box>
         <StatBox
           title="Monthly Sales"
-          value={data && data.thisMonthStats.totalSales}
+          // value={data && data.thisMonthStats.totalSales}
           increase="+5%"
           description="Since last month"
           icon={
@@ -134,7 +134,7 @@ const Dashboard = () => {
         />
         <StatBox
           title="Yearly Sales"
-          value={data && data.yearlySalesTotal}
+          // value={data && data.yearlySalesTotal}
           increase="+43%"
           description="Since last month"
           icon={
@@ -174,12 +174,12 @@ const Dashboard = () => {
             },
           }}
         >
-          <DataGrid
-            loading={isLoading || !data}
-            getRowId={(row) => row._id}
-            rows={(data && data.transactions) || []}
-            columns={columns}
-          />
+          {/* <DataGrid
+            // loading={isLoading || !data}
+            // getRowId={(row) => row._id}
+            // rows={(data && data.transactions) || []}
+            // columns={columns}
+          /> */}
         </Box>
         <Box
           gridColumn="span 4"
@@ -191,7 +191,7 @@ const Dashboard = () => {
           <Typography variant="h6" sx={{ color: theme.palette.secondary[100] }}>
             Sales By Category
           </Typography>
-          <BreakdownChart isDashboard={true} />
+          {/* <BreakdownChart isDashboard={true} /> */}
           <Typography
             p="0 0.6rem"
             fontSize="0.8rem"

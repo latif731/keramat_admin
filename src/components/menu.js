@@ -74,15 +74,11 @@ export const menu = [
         submenu: [
           {
             title: "Pengeluaran Per Bulan",
-            path: "/products",
+            path: "/pengeluaranperbulan",
           },
           {
             title: "Hitungan Modal Per Barang",
-            path: "/",
-          },
-          {
-            title: "Pengeluaran Modal Beli Barang",
-            path: "/",
+            path: "/hitunganmodalperbarang",
           },
           {
             title: "Akomodasi Dan Perlengkapan",
@@ -90,7 +86,7 @@ export const menu = [
           },
           {
             title: "Pengeluaran Modal Beli Barang",
-            path: "/",
+            path: "/pengeluaranmodalbelibarang",
           },
         ],
       },
@@ -107,14 +103,6 @@ export const menu = [
           },
           {
             title: "Profit Bulanan",
-            path: "/",
-          },
-          {
-            title: "Akomodasi Dan Perlengkapan",
-            path: "/",
-          },
-          {
-            title: "Pengeluaran Modal Beli Barang",
             path: "/",
           },
         ],

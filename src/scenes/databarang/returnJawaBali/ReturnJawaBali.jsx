@@ -7,12 +7,13 @@ import DataGridCustomToolbar from "components/DataGridCustomToolbar";
 import { useDispatch, useSelector } from "react-redux";
 // import { fetchTodos } from "state/redux/sliceBarangMasuk";
 import DataGridTable from "components/table/DataGridTable";
-import { fetchReturnJB } from "state/redux/sliceReturnJB";
+// import { fetchReturnJB } from "state/redux/sliceReturnJB";
+import { fetchReturnJB } from "state/redux/barang/barangSlice";
 
 const ReturnJawaBali = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
-  const { data, isLoading, isError } = useSelector((state) => state.todo);
+  const { data, isLoading, isError } = useSelector((state) => state.barang);
   console.log("returnjawabali", data);
   useEffect(() => {
     dispatch(fetchReturnJB());

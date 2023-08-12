@@ -13,7 +13,8 @@ import {
 } from "@mui/material";
 import Header from "components/Header";
 // import { useGetProductsQuery } from "state/api";
-import { fetchHargaBarang } from "state/redux/sliceHargaBarang";
+// import { fetchHargaBarang } from "state/redux/sliceHargaBarang";
+import { fetchHargaBarang } from "state/redux/barang/barangSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const Product = ({ key, no, nama, kodeBarang, hargaJual, gambar }) => {
@@ -86,7 +87,7 @@ const Product = ({ key, no, nama, kodeBarang, hargaJual, gambar }) => {
 
 const HargaBarang = () => {
   // const { data, isLoading } = useGetProductsQuery();
-  const { data, isLoading } = useSelector((state) => state.todo);
+  const { data, isLoading } = useSelector((state) => state.barang);
   const dispatch = useDispatch();
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
   useEffect(() => {

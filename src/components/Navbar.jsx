@@ -9,8 +9,8 @@ import {
 } from "@mui/icons-material";
 import FlexBetween from "components/FlexBetween";
 import { useDispatch } from "react-redux";
-import {setMode} from "state"
-import profileImage from "assets/profile.jpeg";
+import {setMode} from "state/globalSlice"
+// import profileImage from "assets/profile.jpeg";
 import {
   AppBar,
   Button,
@@ -87,7 +87,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
               <Box
                 component="img"
                 alt="profile"
-                src={profileImage}
+                // src={profileImage}
                 height="32px"
                 width="32px"
                 borderRadius="50%"
@@ -99,13 +99,13 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
                   fontSize="0.85rem"
                   sx={{ color: theme.palette.secondary[100] }}
                 >
-                  {user.name}
+                  {/* {user.name} */}
                 </Typography>
                 <Typography
                   fontSize="0.75rem"
                   sx={{ color: theme.palette.secondary[200] }}
                 >
-                  {user.occupation}
+                  {/* {user.occupation} */}
                 </Typography>
               </Box>
               <ArrowDropDownOutlined

@@ -118,13 +118,14 @@ import Header from "components/Header";
 import DataGridCustomToolbar from "components/DataGridCustomToolbar";
 import { useDispatch, useSelector } from "react-redux";
 // import { fetchTodos } from "state/redux/sliceBarangMasuk";
-import { fetchBarangReturTidakDikirim } from "state/redux/sliceBarangReturTdakDikirim";
+// import { fetchBarangReturTidakDikirim } from "state/redux/sliceBarangReturTdakDikirim";
+import { fetchBarangReturTidakDikirim } from "state/redux/barang/barangSlice";
 import DataGridTable from "components/table/DataGridTable";
 
 const ReturnTidakDikirim = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
-  const { data, isLoading, isError } = useSelector((state) => state.todo);
+  const { data, isLoading, isError } = useSelector((state) => state.barang);
   // console.log("returnjawabali", data);
   useEffect(() => {
     dispatch(fetchBarangReturTidakDikirim());

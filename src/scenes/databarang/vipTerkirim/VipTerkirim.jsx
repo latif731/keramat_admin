@@ -119,13 +119,14 @@ import DataGridCustomToolbar from "components/DataGridCustomToolbar";
 import { useDispatch, useSelector } from "react-redux";
 // import { fetchTodos } from "state/redux/sliceBarangMasuk";
 // import { fetchMauLagi } from "state/redux/sliceMauLagi";
-import { fetchVipTerkirim } from "state/redux/sliceVipTerkirim";
+// import { fetchVipTerkirim } from "state/redux/sliceVipTerkirim";
 import DataGridTable from "components/table/DataGridTable";
+import { fetchVipTerkirim } from "state/redux/barang/barangSlice";
 
 const VipTerkirim = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
-  const { data, isLoading, isError } = useSelector((state) => state.todo);
+  const { data, isLoading, isError } = useSelector((state) => state.barang);
   console.log("returnjawabali", data);
   useEffect(() => {
     dispatch(fetchVipTerkirim());

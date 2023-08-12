@@ -2,20 +2,21 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
+// import { themeSettings } from "theme";
 import { themeSettings } from "theme";
 import Layout from "scenes/layout";
 import Dashboard from "scenes/dashboard";
-import Products from "scenes/databarang/hargabarang";
+// import Products from "scenes/databarang/hargabarang";
 import BarangMasuk from "scenes/databarang/barangmasuk";
 // import Transactions from "scenes/finance";
-import Geography from "scenes/geography";
-import Overview from "scenes/overview";
-import Daily from "scenes/daily";
-import Monthly from "scenes/monthly";
-import Breakdown from "scenes/breakdown";
-import Admin from "scenes/admin";
-import Performance from "scenes/performance";
-import Finance from "scenes/databarang/profitperhari";
+// import Geography from "scenes/geography";
+// import Overview from "scenes/overview";
+// import Daily from "scenes/daily";
+// import Monthly from "scenes/monthly";
+// import Breakdown from "scenes/breakdown";
+// import Admin from "scenes/admin";
+// import Performance from "scenes/performance";
+// import Finance from "scenes/databarang/profitperhari";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import VipTerkirim from "scenes/databarang/vipTerkirim/VipTerkirim";
 import ReturnSumatera from "scenes/databarang/returnSumatera/ReturnSumatera";
@@ -27,6 +28,9 @@ import HargaBarang from "scenes/databarang/hargabarang";
 import ProfitPerhari from "scenes/databarang/profitperhari";
 import MauLagiTerkirim from "scenes/databarang/maulagiTerkirim/MauLagiTerkirim";
 import AkomodasiDanPerlengkapan from "scenes/keuangan/akomodasiDanPerlengkapan/AkomodasiDanPerlengkapan";
+import PengeluaranModalBeliBarang from "scenes/keuangan/pengeluaranModalBeliBarang/PengeluaranModalBeliBarang";
+import HitunganModalPerBarang from "scenes/keuangan/hitunganmodalperbarang/HitunganModalPerBarang";
+import PengeluaranPerBulan from "scenes/keuangan/pengeluaranperbulan/PengeluaranPerbulan";
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -44,13 +48,13 @@ function App() {
               <Route path="/hargabarang" element={<HargaBarang />} />
               <Route path="/barangmasuk" element={<BarangMasuk />} />
               <Route path="/profitperhari" element={<ProfitPerhari />} />
-              <Route path="/geography" element={<Geography />} />
-              <Route path="/overview" element={<Overview />} />
-              <Route path="/daily" element={<Daily />} />
-              <Route path="/monthly" element={<Monthly />} />
-              <Route path="/breakdown" element={<Breakdown />} />
-              <Route path="/admin" element={<Admin />} />
-              <Route path="/performance" element={<Performance />} />
+              {/* <Route path="/geography" element={<Geography />} /> */}
+              {/* <Route path="/overview" element={<Overview />} /> */}
+              {/* <Route path="/daily" element={<Daily />} /> */}
+              {/* <Route path="/monthly" element={<Monthly />} /> */}
+              {/* <Route path="/breakdown" element={<Breakdown />} /> */}
+              {/* <Route path="/admin" element={<Admin />} /> */}
+              {/* <Route path="/performance" element={<Performance />} /> */}
               <Route path="/vipterkirim" element={<VipTerkirim />} />
               <Route path="/maulagiterkirim" element={<MauLagiTerkirim />} />
               <Route path="/returnsumatera" element={<ReturnSumatera />} />
@@ -64,6 +68,18 @@ function App() {
               <Route
                 path="/AkomodasiDanPerlengkapan"
                 element={<AkomodasiDanPerlengkapan />}
+              />
+              <Route
+                path="/pengeluaranmodalbelibarang"
+                element={<PengeluaranModalBeliBarang />}
+              />
+              <Route
+                path="/hitunganmodalperbarang"
+                element={<HitunganModalPerBarang />}
+              />
+              <Route
+                path="/pengeluaranperbulan"
+                element={<PengeluaranPerBulan/>}
               />
             </Route>
           </Routes>

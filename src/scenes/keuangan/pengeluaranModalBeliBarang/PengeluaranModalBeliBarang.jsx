@@ -1,3 +1,13 @@
+// import React from 'react'
+
+// const PengeluaranModalBeliBarang = () => {
+//   return (
+//     <div>PengeluaranModalBeliBarang</div>
+//   )
+// }
+
+// export default PengeluaranModalBeliBarang
+
 import React, { useState, useEffect } from "react";
 import { Box, useTheme } from "@mui/material";
 // import { DataGrid } from "@mui/x-data-grid";
@@ -10,16 +20,16 @@ import { useDispatch, useSelector } from "react-redux";
 // import { fetchBarangMasuk } from "state/redux/sliceBarangMasuk";
 import DataGridTable from "components/table/DataGridTable";
 import { GridFooterContainer, GridPagination } from "@mui/x-data-grid";
-import { fetchAkomodasiDanPerlengkapan } from "state/redux/keuangan/keuanganSlice";
+import { fetchPengeluaranModalBeliBarang } from "state/redux/keuangan/keuanganSlice";
 
 
-const AkomodasiDanPerlengkapan = () => {
+const PengeluaranModalBeliBarang = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
   const { data, isLoading, isError } = useSelector((state) => state.keuangan);
   console.log("total", data);
   useEffect(() => {
-    dispatch(fetchAkomodasiDanPerlengkapan());
+    dispatch(fetchPengeluaranModalBeliBarang());
   }, []);
 
   // values to be sent to the backend
@@ -60,26 +70,6 @@ const AkomodasiDanPerlengkapan = () => {
       flex: 1,
     },
     {
-      field: "tanggal_beli",
-      headerName: "TANGGAL BELI",
-      flex: 1,
-    },
-    {
-      field: "tanggal_habis",
-      headerName: "TANGGAL HABIS",
-      flex: 1,
-    },
-    {
-      field: "nama_terang",
-      headerName: "NAMA TERANG",
-      flex: 1,
-    },
-    {
-      field: "bulan",
-      headerName: "BULAN",
-      flex: 1,
-    },
-    {
       field: "jumlah",
       headerName: "JUMLAH",
       flex: 1,
@@ -90,13 +80,63 @@ const AkomodasiDanPerlengkapan = () => {
       flex: 1,
     },
     {
+      field: "koli",
+      headerName: "KOLI",
+      flex: 1,
+    },
+    {
+      field: "bank",
+      headerName: "BANK",
+      flex: 1,
+    },
+    {
+      field: "status",
+      headerName: "STATUS",
+      flex: 1,
+    },
+    {
+      field: "tanggal_beli",
+      headerName: "TANGGAL BELI",
+      flex: 1,
+    },
+    {
+      field: "tanggal_habis",
+      headerName: "TANGGAL HABIS",
+      flex: 1,
+    },
+    {
+      field: "bulan",
+      headerName: "BULAN",
+      flex: 1,
+    },
+    // {
+    //   field: "filter",
+    //   headerName: "BULAN",
+    //   flex: 1,
+    // },
+    {
+      field: "barang_filter",
+      headerName: "BARANG",
+      flex: 1,
+    },
+    {
+      field: "jumlah_filter",
+      headerName: "JUMLAH",
+      flex: 1,
+    },
+    {
+      field: "harga_filter",
+      headerName: "HARGA",
+      flex: 1,
+    },
+    {
       field: "sub_total",
       headerName: "SUB TOTAL",
       flex: 1,
     },
     {
       field: "filter",
-      headerName: "BULAN",
+      headerName: "TOTAL",
       flex: 1,
     },
     // {
@@ -116,22 +156,10 @@ const AkomodasiDanPerlengkapan = () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
   const totalAmount = data.reduce((total, row) => total + row.sub_total,0)
   const footerRow = {
     no: "TOTAL",
-        filter: totalAmount,
+    total: totalAmount,
   }
 
   // const rowsWithTotalAmount = [...data, { totalAmount }];
@@ -149,7 +177,7 @@ const AkomodasiDanPerlengkapan = () => {
         <h3>
           Bulan
         </h3> */}
-        <div style={{textAlign: "end", paddingRight:"50px"}}>
+        <div style={{textAlign: "end", paddingRight:"25px"}}>
         {
           data.map((total, i) => (
             <h3 key={i}>{total.total}</h3>
@@ -164,7 +192,7 @@ const AkomodasiDanPerlengkapan = () => {
   }
   return (
     <Box m="1.5rem 2.5rem">
-      <Header title="AKOMODASI DAN PERLENGKAPAN" subtitle="Data tabel akomodasi dan perlengkapan" />
+      <Header title="PENGELUARAN MODAL BELI BARANG" subtitle="Pengeluaran Modal Beli Barang" />
       <DataGridTable
         data={[...data, footerRow]}
         columns={columns}
@@ -181,4 +209,4 @@ const AkomodasiDanPerlengkapan = () => {
   );
 };
 
-export default AkomodasiDanPerlengkapan;
+export default PengeluaranModalBeliBarang;

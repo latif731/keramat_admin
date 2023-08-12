@@ -117,13 +117,14 @@ import { useGetTransactionsQuery } from "state/api";
 import Header from "components/Header";
 import DataGridCustomToolbar from "components/DataGridCustomToolbar";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchBarangRetur } from "state/redux/sliceBarangRetur";
+// import { fetchBarangRetur } from "state/redux/sliceBarangRetur";
+import { fetchBarangRetur } from "state/redux/barang/barangSlice";
 import DataGridTable from "components/table/DataGridTable";
 
 const BarangReturn = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
-  const { data, isLoading, isError } = useSelector((state) => state.todo);
+  const { data, isLoading, isError } = useSelector((state) => state.barang);
   // console.log("returnjawabali", data);
   useEffect(() => {
     dispatch(fetchBarangRetur());

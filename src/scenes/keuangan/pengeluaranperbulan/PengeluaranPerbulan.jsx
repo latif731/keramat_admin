@@ -1,3 +1,13 @@
+// import React from 'react'
+
+// const PengeluaranModalBeliBarang = () => {
+//   return (
+//     <div>PengeluaranModalBeliBarang</div>
+//   )
+// }
+
+// export default PengeluaranModalBeliBarang
+
 import React, { useState, useEffect } from "react";
 import { Box, useTheme } from "@mui/material";
 // import { DataGrid } from "@mui/x-data-grid";
@@ -10,16 +20,16 @@ import { useDispatch, useSelector } from "react-redux";
 // import { fetchBarangMasuk } from "state/redux/sliceBarangMasuk";
 import DataGridTable from "components/table/DataGridTable";
 import { GridFooterContainer, GridPagination } from "@mui/x-data-grid";
-import { fetchAkomodasiDanPerlengkapan } from "state/redux/keuangan/keuanganSlice";
+// import { fetchHitunganModalPerbarang } from "state/redux/keuangan/keuanganSlice";
+import DataGridTable2 from "components/table/table2/DataGridTable2";
 
-
-const AkomodasiDanPerlengkapan = () => {
+const PengeluaranPerBulan = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
   const { data, isLoading, isError } = useSelector((state) => state.keuangan);
   console.log("total", data);
   useEffect(() => {
-    dispatch(fetchAkomodasiDanPerlengkapan());
+    // dispatch(fetchHitunganModalPerbarang());
   }, []);
 
   // values to be sent to the backend
@@ -49,56 +59,31 @@ const AkomodasiDanPerlengkapan = () => {
   }
 
   const columns = [
-    {
-      field: "no",
-      headerName: "NO",
-      flex: 1,
-    },
-    {
-      field: "nama_barang",
-      headerName: "NAMA BARANG",
-      flex: 1,
-    },
-    {
-      field: "tanggal_beli",
-      headerName: "TANGGAL BELI",
-      flex: 1,
-    },
-    {
-      field: "tanggal_habis",
-      headerName: "TANGGAL HABIS",
-      flex: 1,
-    },
-    {
-      field: "nama_terang",
-      headerName: "NAMA TERANG",
-      flex: 1,
-    },
-    {
-      field: "bulan",
-      headerName: "BULAN",
-      flex: 1,
-    },
-    {
-      field: "jumlah",
-      headerName: "JUMLAH",
-      flex: 1,
-    },
-    {
-      field: "harga",
-      headerName: "HARGA",
-      flex: 1,
-    },
-    {
-      field: "sub_total",
-      headerName: "SUB TOTAL",
-      flex: 1,
-    },
-    {
-      field: "filter",
-      headerName: "BULAN",
-      flex: 1,
-    },
+    // {
+    // //   field: "nama_barang",
+    //   headerName: "NAMA BARANG",
+    //   flex: 1,
+    // },
+    // {
+    // //   field: "jumlah",
+    //   headerName: "JUMLAH BARANG",
+    //   flex: 1,
+    // },
+    // {
+    // //   field: "harga",
+    //   headerName: "HARGA",
+    //   flex: 1,
+    // },
+    // {
+    // //   field: "harga",
+    //   headerName: "TOTAL",
+    //   flex: 1,
+    // },
+    // {
+    // //   field: "harga",
+    //   headerName: "NB WARNA MERAH ADALAH BARANG LOW PASAR",
+    //   flex: 1,
+    // },
     // {
     //   field: "products",
     //   headerName: "# of Products",
@@ -116,23 +101,11 @@ const AkomodasiDanPerlengkapan = () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-  const totalAmount = data.reduce((total, row) => total + row.sub_total,0)
-  const footerRow = {
-    no: "TOTAL",
-        filter: totalAmount,
-  }
+//   const totalAmount = data.reduce((total, row) => total + row.sub_total,0)
+//   const footerRow = {
+//     no: "TOTAL",
+//     total: totalAmount,
+//   }
 
   // const rowsWithTotalAmount = [...data, { totalAmount }];
 
@@ -149,7 +122,7 @@ const AkomodasiDanPerlengkapan = () => {
         <h3>
           Bulan
         </h3> */}
-        <div style={{textAlign: "end", paddingRight:"50px"}}>
+        <div style={{textAlign: "end", paddingRight:"25px"}}>
         {
           data.map((total, i) => (
             <h3 key={i}>{total.total}</h3>
@@ -164,9 +137,13 @@ const AkomodasiDanPerlengkapan = () => {
   }
   return (
     <Box m="1.5rem 2.5rem">
-      <Header title="AKOMODASI DAN PERLENGKAPAN" subtitle="Data tabel akomodasi dan perlengkapan" />
-      <DataGridTable
-        data={[...data, footerRow]}
+      <Header title="PENGELUARAN PER BULAN" subtitle="Data Pengeluaran Per Bulan"/>
+      <div style={{marginTop:"20px"}}>
+      <DataGridTable2/>
+      </div>
+      {/* <DataGridTable
+        // data={[...data, footerRow]}
+        data={data}
         columns={columns}
         theme={theme}
         searchInput={searchInput}
@@ -176,9 +153,9 @@ const AkomodasiDanPerlengkapan = () => {
         // components={{Footer : TotalFooter}}
         // components={{ Footer: TotalFooter }}
         TotalFooter={CustomFooter}
-      />
+      /> */}
     </Box>
   );
 };
 
-export default AkomodasiDanPerlengkapan;
+export default PengeluaranPerBulan;
