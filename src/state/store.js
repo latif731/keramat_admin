@@ -22,7 +22,7 @@ import BarangReducer from "./redux/barang/barangSlice"
 import KeuanganReducer from "./redux/keuangan/keuanganSlice"
 import PengeluaranReducer from "./redux/pengeluaranperbulan/pengeluaranPerbulanSlice"
 import GajiTeamReducer from "./redux/pengeluaranperbulan/gajiTeam"
-
+import TotalBulananReducer from "./redux/keuangan/totalProfitBulananSlice"
 
 export const store = configureStore({
     reducer: {
@@ -30,7 +30,8 @@ export const store = configureStore({
         barang: BarangReducer,
         keuangan: KeuanganReducer,
         pengeluaran: PengeluaranReducer,
-        gajiteam :GajiTeamReducer
+        gajiteam :GajiTeamReducer,
+        total: TotalBulananReducer
     },
 });
 

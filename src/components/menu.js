@@ -95,7 +95,7 @@ export const menu = [
         submenu: [
           {
             title: "Profit Barang Kotor Perhari",
-            path: "/products",
+            path: "/profitbarangkotorperhari",
           },
           {
             title: "Payment Mingguan",
@@ -103,7 +103,7 @@ export const menu = [
           },
           {
             title: "Profit Bulanan",
-            path: "/",
+            path: "/profitbulanan",
           },
         ],
       },

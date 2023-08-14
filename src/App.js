@@ -31,6 +31,8 @@ import AkomodasiDanPerlengkapan from "scenes/keuangan/akomodasiDanPerlengkapan/A
 import PengeluaranModalBeliBarang from "scenes/keuangan/pengeluaranModalBeliBarang/PengeluaranModalBeliBarang";
 import HitunganModalPerBarang from "scenes/keuangan/hitunganmodalperbarang/HitunganModalPerBarang";
 import PengeluaranPerBulan from "scenes/keuangan/pengeluaranperbulan/PengeluaranPerbulan";
+import ProfitBarangKotorPerHari from "scenes/keuangan/profitBarangKotorPerhari/ProfitBarangKotorPerhari";
+import ProfitBulanan from "scenes/keuangan/profitbulanan/ProfitBulanan";
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -80,6 +82,14 @@ function App() {
               <Route
                 path="/pengeluaranperbulan"
                 element={<PengeluaranPerBulan/>}
+              />
+              <Route
+                path="/profitbarangkotorperhari"
+                element={<ProfitBarangKotorPerHari/>}
+              />
+              <Route
+                path="/profitbulanan"
+                element={<ProfitBulanan/>}
               />
             </Route>
           </Routes>

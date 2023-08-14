@@ -20,15 +20,17 @@ import { useDispatch, useSelector } from "react-redux";
 // import { fetchBarangMasuk } from "state/redux/sliceBarangMasuk";
 import DataGridTable from "components/table/DataGridTable";
 import { GridFooterContainer, GridPagination } from "@mui/x-data-grid";
-import { fetchHitunganModalPerbarang } from "state/redux/keuangan/keuanganSlice";
+// import { fetchPengeluaranModalBeliBarang } from "state/redux/keuangan/keuanganSlice";
+import { fetchBarangKotorPerHari } from "state/redux/keuangan/keuanganSlice";
 
-const HitunganModalPerBarang = () => {
+
+const ProfitBarangKotorPerHari = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
   const { data, isLoading, isError } = useSelector((state) => state.keuangan);
-  console.log("total", data);
+  console.log("barangkotorperhari", data);
   useEffect(() => {
-    dispatch(fetchHitunganModalPerbarang());
+    dispatch(fetchBarangKotorPerHari());
   }, []);
 
   // values to be sent to the backend
@@ -58,29 +60,64 @@ const HitunganModalPerBarang = () => {
   }
 
   const columns = [
+    {
+      field: "no",
+      headerName: "NO",
+      flex: 1,
+    },
+    {
+      field: "nama_barang",
+      headerName: "NAMA BARANG",
+      flex: 1,
+    },
+    {
+      field: "terkirim",
+      headerName: "TERKIRIM",
+      flex: 1,
+    },
+    {
+      field: "harga",
+      headerName: "HARGA",
+      flex: 1,
+    },
+    {
+      field: "tanggal_terkirim",
+      headerName: "TANGGAL TERKIRIM",
+      flex: 1,
+    },
+    {
+      field: "bulan",
+      headerName: "BULAN",
+      flex: 1,
+    },
+    {
+      field: "nama_barang_filter",
+      headerName: "NAMA BARANG",
+      flex: 1,
+    },
+    {
+      field: "jumlah_filter",
+      headerName: "JUMLAH",
+      flex: 1,
+    },
+    {
+      field: "harga_filter",
+      headerName: "HARGA",
+      flex: 1,
+    },
+    {
+      field: "sub_total",
+      headerName: "SUB TOTAL",
+      flex: 1,
+    },
+    {
+      field: "filter",
+      headerName: "TOTAL",
+      flex: 1,
+    },
     // {
-    //   field: "nama_barang",
-    //   headerName: "NAMA BARANG",
-    //   flex: 1,
-    // },
-    // {
-    //   field: "jumlah",
-    //   headerName: "JUMLAH BARANG",
-    //   flex: 1,
-    // },
-    // {
-    // //   field: "harga",
-    //   headerName: "HARGA",
-    //   flex: 1,
-    // },
-    // {
-    // //   field: "harga",
-    //   headerName: "TOTAL",
-    //   flex: 1,
-    // },
-    // {
-    // //   field: "harga",
-    //   headerName: "NB WARNA MERAH ADALAH BARANG LOW PASAR",
+    //   field: "filter",
+    //   headerName: "BULAN",
     //   flex: 1,
     // },
     // {
@@ -100,11 +137,11 @@ const HitunganModalPerBarang = () => {
 
 
 
-//   const totalAmount = data.reduce((total, row) => total + row.sub_total,0)
-//   const footerRow = {
-//     no: "TOTAL",
-//     total: totalAmount,
-//   }
+  const totalAmount = data.reduce((total, row) => total + row.sub_total,0)
+  const footerRow = {
+    no: "TOTAL",
+    total: totalAmount,
+  }
 
   // const rowsWithTotalAmount = [...data, { totalAmount }];
 
@@ -121,7 +158,7 @@ const HitunganModalPerBarang = () => {
         <h3>
           Bulan
         </h3> */}
-        <div style={{textAlign: "end", paddingRight:"25px"}}>
+        <div style={{textAlign: "end", paddingRight:"50px"}}>
         {
           data.map((total, i) => (
             <h3 key={i}>{total.total}</h3>
@@ -136,10 +173,9 @@ const HitunganModalPerBarang = () => {
   }
   return (
     <Box m="1.5rem 2.5rem">
-      <Header title="HITUNGAN MODAL PER BARANG" subtitle="Tabel Hitungan Modal Per Barang" />
+      <Header title="PROFIT BARANG KOTOR PER HARI" subtitle="Tabel Profit Barang Kotor Per Hari" />
       <DataGridTable
-        // data={[...data, footerRow]}
-        data={data}
+        data={[...data, footerRow]}
         columns={columns}
         theme={theme}
         searchInput={searchInput}
@@ -154,4 +190,4 @@ const HitunganModalPerBarang = () => {
   );
 };
 
-export default HitunganModalPerBarang;
+export default ProfitBarangKotorPerHari;
