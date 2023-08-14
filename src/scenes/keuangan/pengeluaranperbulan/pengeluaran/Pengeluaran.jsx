@@ -149,35 +149,35 @@ const Pengeluaran = () => {
 
   // const rowsWithTotalAmount = [...data, { totalAmount }];
 
-  const CustomFooter = () => {
-    return (
-      <div className="custom-footer" style={{position:"relative",}}>
-        <GridFooterContainer columns={columns}>
-      <div className="total-amount" style={{padding:"8px",display:"flex",flexDirection:"row",alignItems:"center", justifyContent:"space-between", position:"sticky", top:"0", zIndex:"1" , border:"none", width:"100%"}}>
-        <h3 style={{paddingLeft:"20px"}}>
-        Total {" "}: 
-        </h3>
-        {/* <h3>Keseluruhan</h3>
-        <h3>{totalAmount}</h3>
-        <h3>
-          Bulan
-        </h3> */}
-        {/* <div style={{textAlign: "end", paddingRight:"25px"}}>
-        {
-          data.map((total, i) => (
-            <h3 key={i}>{total.total}</h3>
-            ))
-          }
-        </div> */}
-      </div>
-          </GridFooterContainer>
-      <GridPagination />
-    </div>
-    )
-  }
+  // const CustomFooter = () => {
+  //   return (
+  //     <div className="custom-footer" style={{position:"relative",}}>
+  //       <GridFooterContainer columns={columns}>
+  //     <div className="total-amount" style={{padding:"8px",display:"flex",flexDirection:"row",alignItems:"center", justifyContent:"space-between", position:"sticky", top:"0", zIndex:"1" , border:"none", width:"100%"}}>
+  //       <h3 style={{paddingLeft:"20px"}}>
+  //       Total {" "}: 
+  //       </h3>
+  //       {/* <h3>Keseluruhan</h3>
+  //       <h3>{totalAmount}</h3>
+  //       <h3>
+  //         Bulan
+  //       </h3> */}
+  //       {/* <div style={{textAlign: "end", paddingRight:"25px"}}>
+  //       {
+  //         data.map((total, i) => (
+  //           <h3 key={i}>{total.total}</h3>
+  //           ))
+  //         }
+  //       </div> */}
+  //     </div>
+  //         </GridFooterContainer>
+  //     <GridPagination />
+  //   </div>
+  //   )
+  // }
   return (
     <Box m="1.5rem 2.5rem">
-      {/* <Header title="PENGELUARAN PER BULAN" subtitle="Data Pengeluaran Per Bulan"/> */}
+      <Header title="Pengeluaran"/>
       {/* <div className="uniqueName" style={{marginTop:"20px"}}>
       <DataGridTable2 
       />
@@ -193,7 +193,7 @@ const Pengeluaran = () => {
         getRowId={(rows: any) => generateRandom()}
         // components={{Footer : TotalFooter}}
         // components={{ Footer: TotalFooter }}
-        TotalFooter={CustomFooter}
+        // TotalFooter={CustomFooter}
       />
     </Box>
   );

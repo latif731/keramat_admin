@@ -1,13 +1,3 @@
-// import React from 'react'
-
-// const PengeluaranModalBeliBarang = () => {
-//   return (
-//     <div>PengeluaranModalBeliBarang</div>
-//   )
-// }
-
-// export default PengeluaranModalBeliBarang
-
 import React, { useState, useEffect } from "react";
 import { Box, useTheme } from "@mui/material";
 // import { DataGrid } from "@mui/x-data-grid";
@@ -179,7 +169,7 @@ const GajiTeam = () => {
   }
   return (
     <Box m="1.5rem 2.5rem">
-      {/* <Header title="PENGELUARAN PER BULAN" subtitle="Data Pengeluaran Per Bulan"/> */}
+      <Header title="Gaji Team"/>
       {/* <div className="uniqueName" style={{marginTop:"20px"}}>
       <DataGridTable2 
       />
@@ -195,7 +185,7 @@ const GajiTeam = () => {
         getRowId={(rows: any) => generateRandom()}
         // components={{Footer : TotalFooter}}
         // components={{ Footer: TotalFooter }}
-        TotalFooter={CustomFooter}
+        // TotalFooter={CustomFooter}
       />
     </Box>
   );
