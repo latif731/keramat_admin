@@ -20,12 +20,17 @@ import { configureStore } from "@reduxjs/toolkit"
 import GlobalReducer from "./globalSlice"
 import BarangReducer from "./redux/barang/barangSlice"
 import KeuanganReducer from "./redux/keuangan/keuanganSlice"
+import PengeluaranReducer from "./redux/pengeluaranperbulan/pengeluaranPerbulanSlice"
+import GajiTeamReducer from "./redux/pengeluaranperbulan/gajiTeam"
+
 
 export const store = configureStore({
     reducer: {
         global: GlobalReducer,
         barang: BarangReducer,
-        keuangan: KeuanganReducer 
+        keuangan: KeuanganReducer,
+        pengeluaran: PengeluaranReducer,
+        gajiteam :GajiTeamReducer
     },
 });
 

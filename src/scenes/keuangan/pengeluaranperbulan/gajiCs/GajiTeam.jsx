@@ -22,34 +22,33 @@ import DataGridTable from "components/table/DataGridTable";
 import { GridFooterContainer, GridPagination } from "@mui/x-data-grid";
 // import { fetchHitunganModalPerbarang } from "state/redux/keuangan/keuanganSlice";
 import DataGridTable2 from "components/table/table2/DataGridTable2";
-import Pengeluaran from "./pengeluaran/Pengeluaran";
 // import { fetchHeaderFirst } from "state/redux/header/headerSlice";
 // import "./table.css"
 import { fetchGajiTeam } from "state/redux/pengeluaranperbulan/gajiTeam";
 import { fetchPengeluaran } from "state/redux/pengeluaranperbulan/pengeluaranPerbulanSlice";
-import GajiTeam from "./gajiCs/GajiTeam";
 
-const PengeluaranPerBulan = () => {
+const GajiTeam = () => {
   const theme = useTheme();
-  // const dispatch = useDispatch();
-  // const { data, isLoading, isError } = useSelector((state) => state.pengeluaran);
-  // console.log("pengeluaran", data);
-  // const { data: datum, isLoading: gajiLoading, isError: errorGaji } = useSelector((state) => state.gajiteam); 
+  const dispatch = useDispatch();
+  const { gaji, isLoading, isError } = useSelector((state) => state.gajiteam);
+  console.log("gajiteam", gaji);
+  // const { datum, isLoading: gajiLoading, isError: errorGaji } = useSelector((state) => state.gajiteam); 
   // console.log("gaji", datum)
-  // useEffect(() => {
-  //   dispatch(fetchPengeluaran())
-  //   dispatch(fetchGajiTeam())
-  // }, []);
+  useEffect(() => {
+    if (gaji.length > 0 === false){
+      dispatch(fetchGajiTeam());
+    }
+  }, [dispatch]);
 
-  // const gajiTeam = useSelector(state => state.gajiteam)
-  // console.log("gajiTeam", gajiTeam)
-  // const pengeluaran = useSelector(state =>  state.pengeluaran)
-  // console.log("pengeluaran", pengeluaran)
+//   const gajiTeam = useSelector(state => state.gajiteam)
+//   console.log("gajiTeam", gajiTeam)
+//   const pengeluaran = useSelector(state =>  state.pengeluaran)
+//   console.log("pengeluaran", pengeluaran)
 
-  // useEffect(() => {
-  //   dispatch(fetchGajiTeam())
-  //   dispatch(fetchPengeluaran())
-  // }, [dispatch])
+//   useEffect(() => {
+//     dispatch(fetchGajiTeam())
+//     dispatch(fetchPengeluaran())
+//   }, [dispatch])
   
   // values to be sent to the backend
   const [page, setPage] = useState(0);
@@ -78,44 +77,68 @@ const PengeluaranPerBulan = () => {
   }
 
   const columns = [
-    // {
-    // //   field: "nama_barang",
-    //   headerName: "NAMA BARANG",
-    //   flex: 1,
-    // },
-    // {
-    // //   field: "jumlah",
-    //   headerName: "JUMLAH BARANG",
-    //   flex: 1,
-    // },
-    // {
-    // //   field: "harga",
-    //   headerName: "HARGA",
-    //   flex: 1,
-    // },
-    // {
-    // //   field: "harga",
-    //   headerName: "TOTAL",
-    //   flex: 1,
-    // },
-    // {
-    // //   field: "harga",
-    //   headerName: "NB WARNA MERAH ADALAH BARANG LOW PASAR",
-    //   flex: 1,
-    // },
-    // {
-    //   field: "products",
-    //   headerName: "# of Products",
-    //   flex: 0.5,
-    //   sortable: true,
-    //   // renderCell: (params) => params.value.length,
-    // },
-    // {
-    //   field: "cost",
-    //   headerName: "Cost",
-    //   flex: 1,
-    //   // renderCell: (params) => `$${Number(params.value).toFixed(2)}`,
-    // },
+    {
+      field: "gaji_team",
+      headerName: "GAJI TEAM",
+      flex: 1,
+    },
+    {
+      field: "april",
+      headerName: "APRIL",
+      flex: 1,
+    },
+    {
+      field: "mei",
+      headerName: "MEI",
+      flex: 1,
+    },
+    {
+      field: "juni",
+      headerName: "JUNI",
+      flex: 1,
+    },
+    {
+      field: "juli",
+      headerName: "JULI",
+      flex: 1,
+    },
+    {
+      field: "agustus",
+      headerName: "AGUSTUS",
+      flex: 0.5,
+      sortable: true,
+      // renderCell: (params) => params.value.length,
+    },
+    {
+      field: "september",
+      headerName: "SEPTEMBER",
+      flex: 1,
+      // renderCell: (params) => `$${Number(params.value).toFixed(2)}`,
+    },
+    {
+      field: "oktober",
+      headerName: "OKTOBER",
+      flex: 1,
+      // renderCell: (params) => `$${Number(params.value).toFixed(2)}`,
+    },
+    {
+      field: "november",
+      headerName: "NOVEMBER",
+      flex: 1,
+      // renderCell: (params) => `$${Number(params.value).toFixed(2)}`,
+    },
+    {
+      field: "desember",
+      headerName: "DESEMBER",
+      flex: 1,
+      // renderCell: (params) => `$${Number(params.value).toFixed(2)}`,
+    },
+    {
+      field: "total",
+      headerName: "TOTAL",
+      flex: 1,
+      // renderCell: (params) => `$${Number(params.value).toFixed(2)}`,
+    },
   ];
 
 
@@ -156,16 +179,14 @@ const PengeluaranPerBulan = () => {
   }
   return (
     <Box m="1.5rem 2.5rem">
-      <Header title="PENGELUARAN PER BULAN" subtitle="Data Pengeluaran Per Bulan"/>
+      {/* <Header title="PENGELUARAN PER BULAN" subtitle="Data Pengeluaran Per Bulan"/> */}
       {/* <div className="uniqueName" style={{marginTop:"20px"}}>
       <DataGridTable2 
       />
       </div> */}
-      <Pengeluaran/>
-      <GajiTeam/>
-      {/* <DataGridTable
+      <DataGridTable
         // data={[...data, footerRow]}
-        data={data}
+        data={gaji}
         columns={columns}
         theme={theme}
         searchInput={searchInput}
@@ -175,9 +196,9 @@ const PengeluaranPerBulan = () => {
         // components={{Footer : TotalFooter}}
         // components={{ Footer: TotalFooter }}
         TotalFooter={CustomFooter}
-      /> */}
+      />
     </Box>
   );
 };
 
-export default PengeluaranPerBulan;
+export default GajiTeam;
