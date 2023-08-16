@@ -98,7 +98,7 @@ const HargaBarang = () => {
     <Box m="1.5rem 2.5rem">
       <Header
         title="HARGA BARANG"
-        subtitle="Datang Barang Ready Stok Beserta Harganya"
+        subtitle="Data Barang Ready Stok Beserta Harganya"
       />
       {data || !isLoading ? (
         <Box
