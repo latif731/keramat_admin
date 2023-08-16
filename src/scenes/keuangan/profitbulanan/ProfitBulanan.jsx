@@ -127,11 +127,11 @@ const ProfitBulanan = () => {
         <h3>
           Bulan
         </h3> */}
-        <div style={{textAlign: "end", paddingRight:"450px"}}>
+        <div style={{textAlign: "end", paddingRight:"350px"}}>
         {
           total.map((totals, i) => {
             return (
-                <div style={{display:"flex", gap:"470px"}} key={i}>
+                <div style={{display:"flex", gap:"350px"}} key={i}>
                 <h3 key={i}>{totals.total_jnt}</h3>
                 <h3 key={i}>{totals.total_maulagi}</h3>
                 </div>

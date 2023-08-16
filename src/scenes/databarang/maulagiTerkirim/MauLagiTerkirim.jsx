@@ -248,6 +248,7 @@ import React, { useState, useEffect } from "react";
 import { Box, useTheme } from "@mui/material";
 // import { DataGrid } from "@mui/x-data-grid";
 import { useGetTransactionsQuery } from "state/api";
+import moment from "moment";
 import Header from "components/Header";
 import DataGridCustomToolbar from "components/DataGridCustomToolbar";
 import { useDispatch, useSelector } from "react-redux";
@@ -295,6 +296,7 @@ const MauLagiTerkirim = () => {
       field: "tanggal",
       headerName: "TANGGAL",
       flex: 1,
+      valueGetter: params => moment(params?.value).format("DD-MM-YYYY hh:mm A"),
     },
     {
       field: "bulan",

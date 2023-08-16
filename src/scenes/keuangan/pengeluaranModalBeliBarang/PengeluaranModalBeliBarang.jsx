@@ -15,6 +15,7 @@ import { useGetTransactionsQuery } from "state/api";
 import Header from "components/Header";
 import DataGridCustomToolbar from "components/DataGridCustomToolbar";
 import { useDispatch, useSelector } from "react-redux";
+import moment from "moment";
 // import { fetchAkomodasiDanPerlengkapan } from "state/redux/sliceAkomodasiDanPerlengkapan";
 // import { fetchTodos } from "state/redux/sliceBarangMasuk";
 // import { fetchBarangMasuk } from "state/redux/sliceBarangMasuk";
@@ -67,42 +68,43 @@ const PengeluaranModalBeliBarang = () => {
     {
       field: "nama_barang",
       headerName: "NAMA BARANG",
-      flex: 1,
+      flex: 2,
     },
     {
       field: "jumlah",
       headerName: "JUMLAH",
-      flex: 1,
+      flex: 2,
     },
     {
       field: "harga",
       headerName: "HARGA",
-      flex: 1,
+      flex: 2,
     },
     {
       field: "koli",
       headerName: "KOLI",
-      flex: 1,
+      flex: 2,
     },
     {
       field: "bank",
       headerName: "BANK",
-      flex: 1,
+      flex: 2,
     },
     {
       field: "status",
       headerName: "STATUS",
-      flex: 1,
+      flex: 2,
     },
     {
       field: "tanggal_beli",
       headerName: "TANGGAL BELI",
-      flex: 1,
+      flex: 3,
+      valueGetter: params => moment(params?.value).format("DD-MM-YYYY hh:mm A")
     },
     {
       field: "tanggal_habis",
       headerName: "TANGGAL HABIS",
-      flex: 1,
+      flex: 3,
     },
     {
       field: "bulan",
@@ -117,7 +119,7 @@ const PengeluaranModalBeliBarang = () => {
     {
       field: "barang_filter",
       headerName: "BARANG",
-      flex: 1,
+      flex: 2,
     },
     {
       field: "jumlah_filter",
@@ -127,12 +129,12 @@ const PengeluaranModalBeliBarang = () => {
     {
       field: "harga_filter",
       headerName: "HARGA",
-      flex: 1,
+      flex: 2,
     },
     {
       field: "sub_total",
       headerName: "SUB TOTAL",
-      flex: 1,
+      flex: 2,
     },
     {
       field: "filter",
@@ -196,6 +198,7 @@ const PengeluaranModalBeliBarang = () => {
       <DataGridTable
         data={[...data, footerRow]}
         columns={columns}
+        sx={{ overflowX: 'scroll' }}
         theme={theme}
         searchInput={searchInput}
         setSearchInput={setSearchInput}

@@ -10,6 +10,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Box, useTheme } from "@mui/material";
+import moment from "moment";
 // import { DataGrid } from "@mui/x-data-grid";
 import { useGetTransactionsQuery } from "state/api";
 import Header from "components/Header";
@@ -84,6 +85,7 @@ const ProfitBarangKotorPerHari = () => {
       field: "tanggal_terkirim",
       headerName: "TANGGAL TERKIRIM",
       flex: 1,
+      valueGetter: params => moment(params?.value).format("DD-MM-YYYY hh:mm A")
     },
     {
       field: "bulan",

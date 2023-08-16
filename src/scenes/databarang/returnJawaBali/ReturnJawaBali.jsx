@@ -5,6 +5,7 @@ import { useGetTransactionsQuery } from "state/api";
 import Header from "components/Header";
 import DataGridCustomToolbar from "components/DataGridCustomToolbar";
 import { useDispatch, useSelector } from "react-redux";
+import moment from "moment";
 // import { fetchTodos } from "state/redux/sliceBarangMasuk";
 import DataGridTable from "components/table/DataGridTable";
 // import { fetchReturnJB } from "state/redux/sliceReturnJB";
@@ -60,6 +61,7 @@ const ReturnJawaBali = () => {
       field: "tanggal",
       headerName: "TANGGAL",
       flex: 1,
+      valueGetter: params => moment(params?.value).format("DD-MM-YYYY hh:mm A")
     },
     {
       field: "lokasi_scan",

@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import { fetchAkomodasiDanPerlengkapan } from "state/redux/sliceAkomodasiDanPerlengkapan";
 // import { fetchTodos } from "state/redux/sliceBarangMasuk";
 // import { fetchBarangMasuk } from "state/redux/sliceBarangMasuk";
+import moment from "moment";
 import DataGridTable from "components/table/DataGridTable";
 import { GridFooterContainer, GridPagination } from "@mui/x-data-grid";
 import { fetchAkomodasiDanPerlengkapan } from "state/redux/keuangan/keuanganSlice";
@@ -63,6 +64,7 @@ const AkomodasiDanPerlengkapan = () => {
       field: "tanggal_beli",
       headerName: "TANGGAL BELI",
       flex: 1,
+      valueGetter: params => moment(params?.value).format("DD-MM-YYYY hh:mm A")
     },
     {
       field: "tanggal_habis",
